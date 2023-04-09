@@ -1,8 +1,8 @@
 """
 Author: Kelvin Gooding
 Created: 2022-06-13
-Updated: 2023-03-27
-Version: 1.2
+Updated: 2023-04-09
+Version: 1.3
 """
 
 # Modules
@@ -13,7 +13,7 @@ import os
 import time
 
 # Variables
-
+2
 user = os.getlogin()
 timestamp = datetime.today().strftime("%H:%M:%S")
 
@@ -21,53 +21,52 @@ timestamp = datetime.today().strftime("%H:%M:%S")
 
 input("Press any key to start ..")
 
-
 # Write to log file with Backup Start Time
 
 def file_bkup(bkup_source, bkup_destination):
     start_time = time.time()
 
-    if os.path.isdir(bkup_destination):
-        print(f'\nExisting Directory Found! Deleting {bkup_destination} ..')
-        os.system(f'rmdir /S /Q "{bkup_destination}"')
+    try:
 
-        print(f'{datetime.today().strftime("%H:%M:%S")} - Copying {bkup_source} to {bkup_destination}')
-        shutil.copytree(bkup_source, bkup_destination)
+        if os.path.isdir(bkup_destination):
+            print(f'\nExisting Directory Found! Deleting {bkup_destination} ..')
+            os.system(f'rmdir /S /Q "{bkup_destination}"')
 
-        print(f'{datetime.today().strftime("%H:%M:%S")} - Complete!')
-    else:
-        print(f'\n{datetime.today().strftime("%H:%M:%S")} - Copying {bkup_source} to {bkup_destination}')
-        shutil.copytree(bkup_source, bkup_destination)
-        print(f'{datetime.today().strftime("%H:%M:%S")} - Complete!')
+            print(f'{datetime.today().strftime("%H:%M:%S")} - Copying {bkup_source} to {bkup_destination}')
+            shutil.copytree(bkup_source, bkup_destination)
+
+            print(f'{datetime.today().strftime("%H:%M:%S")} - Complete!')
+        else:
+            print(f'\n{datetime.today().strftime("%H:%M:%S")} - Copying {bkup_source} to {bkup_destination}')
+            shutil.copytree(bkup_source, bkup_destination)
+            print(f'{datetime.today().strftime("%H:%M:%S")} - Complete!')
+
+    except:
+        pass
 
     finish_time = time.time() - start_time
 
     print(f'Section Complete! Duration: {round(finish_time, 2)}')
 
-    time.sleep(20)
+start_time = time.time()
 
 # Documents
-
-file_bkup(fr'C:\Users\{user}\Desktop\source\pictures', fr'C:\Users\{user}\Desktop\destination\pictures')
+file_bkup(fr'C:\Users\{user}\OneDrive', fr'D:\Documents')
 
 # Pictures
-
-file_bkup(fr'C:\Users\{user}\Desktop\source\docs', fr'C:\Users\{user}\Desktop\destination\docs')
+file_bkup(fr'C:\Users\{user}\Pictures', fr'D:\Pictures')
 
 # Software
-
-file_bkup(fr'C:\Users\{user}\Desktop\source\music', fr'C:\Users\{user}\Desktop\destination\music')
+file_bkup(fr'C:\Users\{user}\Desktop\source\music', fr'D:\Software')
 
 # Music
-
-file_bkup(fr'C:\Users\{user}\Desktop\source\software', fr'C:\Users\{user}\Desktop\destination\software')
+file_bkup(fr'C:\Users\{user}\Music', fr'D:\Music')
 
 # Videos
+file_bkup(fr'C:\Users\{user}\Videos', fr'D:\Videos')
 
-file_bkup(fr'C:\Users\{user}\Desktop\source\videos', fr'C:\Users\{user}\Desktop\destination\videos')
-
-start_time = time.time()
 finish_time = time.time() - start_time
+
 print('\n---------------')
 print(f'Full Backup Complete! Duration: {round(finish_time, 2)}')
 print()
