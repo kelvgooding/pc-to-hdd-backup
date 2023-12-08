@@ -1,16 +1,16 @@
 """
 Author: Kelvin Gooding
 Created: 2022-06-13
-Updated: 2023-12-02
-Version: 1.6
+Updated: 2023-12-08
+Version: 1.6.1
 """
 
 # Modules
 
-import shutil
 from datetime import datetime
-import os
 from modules import exec_timer
+import os
+import shutil
 
 # Variables
 
@@ -48,10 +48,6 @@ def file_bkup(bkup_source, bkup_destination):
 
 exec_timer.start_timer()
 
-file_bkup(fr'C:\Users\{user}\OneDrive', fr'{hdd_drive}:\Documents')
-file_bkup(fr'D:\Pictures', fr'{hdd_drive}:\Pictures')
-file_bkup(fr'D:\Software', fr'{hdd_drive}:\Software')
-file_bkup(fr'D:\Music', fr'{hdd_drive}:\Music')
-file_bkup(fr'D:\Videos', fr'{hdd_drive}:\Videos')
+# Add the function here - including the backup source and destination paths.
 
 exec_timer.stop_timer()
