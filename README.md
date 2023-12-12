@@ -1,4 +1,4 @@
-# LIVE.LIFE.AUTOMATE
+# PC TO HDD BACKUP
 
 ## Description
 
@@ -14,30 +14,50 @@ This script is used to back up files from PC to a External HDD. This is achieved
 
 Once this process starts, this will go in order of the script, and will move onto the next folder once the previous one is complete.
 
-## System Requirements
+## OS Compatibility
 
+- Linux
 - Windows
-
-## Prerequisites
-
-Run the following command to install the requirements.txt file
-
-```
-pip3 install -r requirements.txt
-```
 
 ## Dependencies
 
-### Software:
+### Linux Packages
 
-- Python
+- python3
+- python3-pip
 
-### Modules:
+### Python Modules
 
 - from datetime import datetime
 - from modules import exec_timer
 - import os
 - import shutil
+
+
+## Installation
+
+To download this web application, run the following commands on your linux environment:
+
+Downloading the repository from GitHub:
+
+```
+cd ~
+git clone https://github.com/kelvgooding/pc-to-hdd-backup.git
+```
+
+Installating the requirements.txt file to ensure the correct packages are available and installed:
+
+```
+cd ~/pc-to-hdd-backup
+pip3 install -r requirements.txt
+```
+
+Running the application:
+
+```
+cd ~/pc-to-hdd-backup
+python3 pc-to-hdd-backup.py
+```
 
 ## Stakeholders
 
